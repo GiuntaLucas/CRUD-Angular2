@@ -1,0 +1,11 @@
+<div *ngIf="user">
+  <h3>Detail {{user.name}}</h3>
+  
+  id: {{user.id}}<br>
+  name: {{user.name}}<br>
+  firstname: {{user.firstname}}<br>
+  age: {{user.age}}<br>
+  
+  <button type="button" class="btn btn-default" (click)="preEdit()">Edit</button>
+  
+</div>

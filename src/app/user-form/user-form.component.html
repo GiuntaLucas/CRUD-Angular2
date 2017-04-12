@@ -1,0 +1,27 @@
+
+<h3 *ngIf="!isEdit">New user</h3>
+<h3 *ngIf="isEdit">Edit user</h3>
+
+<!--form TEMPLATE-->
+
+<form #userForm="ngForm">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" name="name" type="text" [(ngModel)]="user.name" #name="ngModel" required>
+    <p [hidden]="name.valid || name.change">Name is required</p>
+  </div>
+  <div class="form-group">
+    <label for="firstname">Firstname</label>
+    <input class="form-control" name="firstname" type="text" [(ngModel)]="user.firstname" #firstname="ngModel" required>
+    <p [hidden]="firstname.valid || firstname.change">Firstname is required</p>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input class="form-control" name="age" type="number" [(ngModel)]="user.age" #age="ngModel" required>
+    <p [hidden]="age.valid || age.change">Age is required</p>
+  </div>
+  <button *ngIf="!isEdit" type="button" [disabled]="!userForm.form.valid" class="btn btn-default" (click)="create(user); userForm.reset()">Create</button>
+  <button *ngIf="isEdit" type="button" [disabled]="!userForm.form.valid" class="btn btn-default" (click)="edit(user); userForm.reset()">Save</button>
+</form>
+
+

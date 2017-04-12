@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-6">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let u of users" (click)="onSelected(u)" style="cursor:pointer">
+        {{u.name}}
+        <span class="badge" (click)="remove(u)">
+        <i class="glyphicon glyphicon-remove"></i>
+      </span>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div style="width: 500px;">
+      <user-form [user]="user" [isEdit]="isEdit"></user-form>
+    </div>
+    <hr *ngIf="userSelected">
+    <user-detail [user]="userSelected" [isEdit]="isEdit" (edit)="preEdit($event)"></user-detail>
+  </div>
+</div>
